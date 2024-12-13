@@ -1,20 +1,25 @@
 import '../styles/counter.css';
-import '../assets/heart.svg';
+import heart from '../assets/heart.svg';
+
+import { useState } from 'react';
+//import heartPulse from '../assets/heart-pulse.svg';
 
 const Counter = () =>{
+    //console.log(heart);
 
-    const heart = new Image();
-    heart.src = '../assets/heart.svg';
-    heart.height = 30;
-
-    console.log(heart);
+    // eslint-disable-next-line no-unused-vars
+    const [missLeft, setMissLeft] = useState(4);
 
     return(
         <>
         <div id="counter">
-            <div className="life-bar"></div>
-            
-            <img src={heart.src} className="heart"></img>
+            <div className="life-bar">
+                        {/* Stworzy wewnątrz life-bar tyle divów life-bar -tep ile wynosi missLeft */}
+                        {Array.from({ length: missLeft }).map((_, index) => (
+                        <div key={index} className="life-bar-step"></div>
+                    ))}
+            </div>   
+            <img src={heart} className="heart"></img>
         </div>
         </>
     )

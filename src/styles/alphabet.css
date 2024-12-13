@@ -8,10 +8,18 @@
 }
 
 .letter{
+    width: 90px;
+    height: 90px;
+    text-align: center;
     font-size: 3.5rem;
-    padding: 0 1.5rem;
+    line-height: 90px;
+    font-weight: 600;
     background: var(--letter-not-used);
     color: var(--main-background);
     border-radius: 1rem;
     cursor: pointer;
+}
+
+.letter:hover{
+    box-shadow: 0 0 5px 5px var(--letter-not-used);
 }

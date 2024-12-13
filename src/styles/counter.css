@@ -1,0 +1,35 @@
+.heart{
+    width: 50px;
+    /* filter: invert(34%) sepia(99%) saturate(747%) hue-rotate(332deg) brightness(96%) contrast(101%); */
+}
+
+#counter{
+    display: flex;
+    align-items: center;
+    column-gap: 2rem;
+}
+
+.life-bar{
+    width: 200px;
+    padding: 2px;
+    overflow: hidden;
+    border: 2px solid var(--letter-not-used);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.life-bar-step:first-child{
+    border-radius: 5px 0 0 5px;
+}
+
+.life-bar-step:last-child{
+    border-radius:  0  5px 5px 0;
+}
+
+.life-bar-step{
+    width: 20%;
+    height: 10px;
+    background: var(--letter-not-used);
+}
