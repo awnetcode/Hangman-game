@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import '../styles/cathegory.css';
 import hamburger from '../assets/hamburger-round-svgrepo-com.svg'
+import Game from './Game';
 
 
 const Cathegory = () =>{
@@ -12,6 +13,7 @@ const Cathegory = () =>{
 
     return(
         <>
+        <Game/>
         <div id="cathegory">
         <img onClick={toggleMenu} className='hamburger' src={hamburger} alt="" />
         <span>{ isOpen? 'menu-on':'menu-off'}</span>
