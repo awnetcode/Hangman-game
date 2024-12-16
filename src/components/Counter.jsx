@@ -1,13 +1,16 @@
 import '../styles/counter.css';
-import heart from '../assets/heart.svg';
 
-import { useState } from 'react';
-//import heartPulse from '../assets/heart-pulse.svg';
+import { useContext } from 'react';
+import { CathegoryContext } from './Game-context';
+
+import heart from '../assets/heart.svg';
+import heartPulse from '../assets/heart-pulse.svg';
 
 const Counter = () =>{
+    const missLeft = useContext(CathegoryContext).missLeft;
 
-    // eslint-disable-next-line no-unused-vars
-       const [missLeft, setMissLeft] = useState(4);
+    //TESTOWO: do usunięcia razem z onclickiem na heart
+    const changeMissLeft = useContext(CathegoryContext).setMissLeft;
 
     return(
         <>
@@ -18,12 +21,10 @@ const Counter = () =>{
                         <div key={index} className="life-bar-step"></div>
                     ))}
             </div>   
-            <img src={heart} className="heart"></img>
+            <img src={missLeft > 2 ? heart : heartPulse} className="heart" onClick={() => changeMissLeft(missLeft - 1)}></img>
         </div>
         </>
-    )
-
-    
+    )   
 }
 
 export default Counter;
