@@ -5,16 +5,15 @@ import { useState } from 'react';
 //import heartPulse from '../assets/heart-pulse.svg';
 
 const Counter = () =>{
-    //console.log(heart);
 
     // eslint-disable-next-line no-unused-vars
-    const [missLeft, setMissLeft] = useState(4);
+       const [missLeft, setMissLeft] = useState(4);
 
     return(
         <>
         <div id="counter">
             <div className="life-bar">
-                        {/* Stworzy wewnątrz life-bar tyle divów life-bar -tep ile wynosi missLeft */}
+                        {/* Stworzy wewnątrz life-bar tyle divów life-bar-step ile wynosi missLeft */}
                         {Array.from({ length: missLeft }).map((_, index) => (
                         <div key={index} className="life-bar-step"></div>
                     ))}

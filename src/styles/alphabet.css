@@ -1,18 +1,18 @@
 #alphabet{
     display: flex;
     flex-wrap: wrap;
-    column-gap: 1.5rem;
-    row-gap: 1rem;
-    width: 80%;
+    column-gap: 10px;
+    row-gap: 10px;
+    width: 70%;
     justify-self: flex-end;
 }
 
 .letter{
-    width: 90px;
-    height: 90px;
+    width: 85px;
+    height: 85px;
     text-align: center;
     font-size: 3.5rem;
-    line-height: 90px;
+    line-height: 80px;
     font-weight: 600;
     background: var(--letter-not-used);
     color: var(--main-background);

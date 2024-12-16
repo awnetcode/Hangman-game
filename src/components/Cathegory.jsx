@@ -1,11 +1,14 @@
-import { useState } from 'react';
+import { useContext,useState } from 'react';
+import { CathegoryContext } from './Game-context';
 import '../styles/cathegory.css';
 import hamburger from '../assets/hamburger-round-svgrepo-com.svg'
-import Game from './Game';
+
 
 
 const Cathegory = () =>{
     const [isOpen, setIsOpen] = useState(false);
+
+    const cathegory = useContext(CathegoryContext)
 
     const toggleMenu = () =>{
         setIsOpen(!isOpen);
@@ -13,7 +16,6 @@ const Cathegory = () =>{
 
     return(
         <>
-        <Game/>
         <div id="cathegory">
         <img onClick={toggleMenu} className='hamburger' src={hamburger} alt="" />
         <span>{ isOpen? 'menu-on':'menu-off'}</span>
@@ -24,7 +26,7 @@ const Cathegory = () =>{
             <li className="cathegory-link">Person</li>
         </ul>
 
-        <span className="cathegory-name">Countries</span>
+        <span className="cathegory-name" >{cathegory || "loading..."}</span>
         </div>
         </>
     )

@@ -1,7 +1,5 @@
 import '../styles/alphabet.css';
 
-
-
 const Alphabet = ()=>{
 
    const letters = [];
