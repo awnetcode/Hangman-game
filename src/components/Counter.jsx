@@ -1,16 +1,16 @@
 import '../styles/counter.css';
 
 import { useContext } from 'react';
-import { CathegoryContext } from './Game-context';
+import { GameContext } from './Game-context';
 
 import heart from '../assets/heart.svg';
 import heartPulse from '../assets/heart-pulse.svg';
 
 const Counter = () =>{
-    const missLeft = useContext(CathegoryContext).missLeft;
+    const missLeft = useContext(GameContext).missLeft;
 
     //TESTOWO: do usunięcia razem z onclickiem na heart
-    const changeMissLeft = useContext(CathegoryContext).setMissLeft;
+    const changeMissLeft = useContext(GameContext).setMissLeft;
 
     return(
         <>

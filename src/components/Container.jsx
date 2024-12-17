@@ -1,6 +1,6 @@
 import '../styles/container.css';
 
-import { CathegoryProvider } from './Game-context.jsx';
+import { GameProvider } from './Game-context.jsx';
 import Game from './Game.jsx';
 
 import Alphabet from './Alphabet';
@@ -9,12 +9,12 @@ import Password from './Password.jsx';
 
 const Container = () =>{
     return(
-        <CathegoryProvider>
+        <GameProvider>
            <Game />
            <Header />
            <Password />
            <Alphabet />
-        </CathegoryProvider>
+        </GameProvider>
     )
 }
 

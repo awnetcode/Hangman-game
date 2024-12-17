@@ -1,22 +1,32 @@
 import '../styles/password.css';
 
 import { useContext } from 'react';
-import { CathegoryContext } from './Game-context';
+import { GameContext } from './Game-context';
 
 const Password = () =>{
 
-    const password = useContext(CathegoryContext).task
-
+    const password = useContext(GameContext).task
     const passwordArray = [...password];
 
+    //TESTOWO odczyt liter klikniętych na "klawiaturze" w alphabet
+
+    const clickedLetter = useContext(GameContext).selectedChar;
+    const charMatch = useContext(GameContext).charMatch;
+ 
     return(
         <>
         <div id="password">
             {passwordArray.map((char, index) =>(
-                <span className='task-letter' key={index}>{char}</span>
+                <div className="char-container" key={index}>
+                    <span className={
+                        clickedLetter == char && charMatch == true ? "visible" : "task-char"
+                        } key={index}>{char}</span>
+                </div>
             ))}
         </div>
         {password}
+        <br></br>
+        {clickedLetter}
         </>
     )
 }

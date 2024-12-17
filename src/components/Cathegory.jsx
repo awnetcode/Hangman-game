@@ -1,5 +1,5 @@
 import { useContext,useState } from 'react';
-import { CathegoryContext } from './Game-context';
+import { GameContext } from './Game-context';
 import '../styles/cathegory.css';
 import hamburger from '../assets/hamburger-round-svgrepo-com.svg'
 
@@ -8,8 +8,8 @@ import hamburger from '../assets/hamburger-round-svgrepo-com.svg'
 const Cathegory = () =>{
     const [isOpen, setIsOpen] = useState(false);
 
-    const cathegory = useContext(CathegoryContext).cathegory;
-    const changeCathegory = useContext(CathegoryContext).setCathegory;
+    const cathegory = useContext(GameContext).cathegory;
+    const changeCathegory = useContext(GameContext).setCathegory;
 
     const toggleMenu = () =>{
         setIsOpen(!isOpen);

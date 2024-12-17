@@ -1,21 +1,25 @@
 import { createContext, useState } from 'react';
 
 // eslint-disable-next-line react-refresh/only-export-components
-export const CathegoryContext = createContext();
+export const GameContext = createContext();
 
 // eslint-disable-next-line react/prop-types
-export const CathegoryProvider = ({ children }) => {
+export const GameProvider = ({ children }) => {
   const [cathegory, setCathegory] = useState('null');
   const [task, setTask] = useState("");
   const [missLeft, setMissLeft] = useState(5);
+  const [selectedChar, setSelecdedChar] = useState("");
+  const [charMatch, setCharMatch] = useState(false);
 
   return (
-    <CathegoryContext.Provider value={{
+    <GameContext.Provider value={{
      cathegory, setCathegory,
      task, setTask,
-     missLeft, setMissLeft 
+     missLeft, setMissLeft,
+     selectedChar, setSelecdedChar,
+     charMatch, setCharMatch 
      }}>
       {children}
-    </CathegoryContext.Provider>
+    </GameContext.Provider>
   );
 };

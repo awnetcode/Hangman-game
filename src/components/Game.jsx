@@ -1,9 +1,17 @@
 import { useEffect, useContext } from 'react';
-import { CathegoryContext } from './Game-context.jsx';
+import { GameContext } from './Game-context.jsx';
 import GameData from './Game-data.jsx';
 
 const Game = () => {
-  const { setCathegory, setTask } = useContext(CathegoryContext);
+  const { setCathegory, setTask } = useContext(GameContext);
+
+  const clickedLetter = useContext(GameContext).selectedChar;
+  const charMatch = useContext(GameContext).charMatch;
+
+  //funkcja porównująca litery z hasłem wywołana onclick na klawiszach w alphabet
+   const tryChar = () =>{
+
+  }
 
   useEffect(() => {
     const cathegoryIndex = Math.floor(Math.random() * GameData.cathegories.length);
