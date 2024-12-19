@@ -1,21 +1,18 @@
 import '../styles/alphabet.css';
-
 import { useContext } from 'react';
 import { GameContext } from './Game-context';
 
 const Alphabet = ()=>{
 
    // eslint-disable-next-line react-hooks/rules-of-hooks
-   const checkLetter = useContext(GameContext).setSelecdedChar;
-   // eslint-disable-next-line react-hooks/rules-of-hooks
-   const markLetter = useContext(GameContext).setCharMatch;
+   const { tryChar } = useContext(GameContext);
 
    const letters = [];
-   const polish = "ĄĆĘŃÓŚŹŻ";
+   const polish = "ĄĆĘŁŃÓŚŹŻ";
    const polishArray = [...polish];
    
-      polishArray.forEach((asc)=>{
-         letters.push(asc);
+      polishArray.forEach((char)=>{
+         letters.push(char);
       }) 
      
       //ascii 65-90 
@@ -30,10 +27,12 @@ const Alphabet = ()=>{
          <>
          <div id="alphabet">
          {letters.map((letter, index) => (
-            <span className='letter' key={index} onClick={() => {
-               checkLetter(letter);
-               markLetter(true);
-            } }>{letter}</span>
+            <span
+             className='letter'
+              key={index}
+               onClick={() => tryChar(letter)}>
+               {letter}
+            </span>
          ))}
          </div>
          </>

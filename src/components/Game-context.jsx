@@ -10,6 +10,24 @@ export const GameProvider = ({ children }) => {
   const [missLeft, setMissLeft] = useState(5);
   const [selectedChar, setSelecdedChar] = useState("");
   const [charMatch, setCharMatch] = useState(false);
+  const [guessedChars, setGuessedChars] = useState([]);
+
+
+  // Funkcja porównująca literę z hasłem
+  const tryChar = (letter) => {
+    setSelecdedChar(letter); // Aktualizuje wybraną literę
+    const isMatch = task.includes(letter); // Sprawdza, czy litera jest w zadaniu
+    setCharMatch(isMatch); // Aktualizuje stan charMatch
+
+  if (isMatch) {
+    setGuessedChars((prevGuessed) => 
+      prevGuessed.includes(letter) ? prevGuessed : [...prevGuessed, letter]
+    );
+  } else {
+    setMissLeft((prevMissLeft) => prevMissLeft - 1);
+  }
+  };
+  
 
   return (
     <GameContext.Provider value={{
@@ -17,7 +35,9 @@ export const GameProvider = ({ children }) => {
      task, setTask,
      missLeft, setMissLeft,
      selectedChar, setSelecdedChar,
-     charMatch, setCharMatch 
+     charMatch, setCharMatch,
+     tryChar, 
+     guessedChars
      }}>
       {children}
     </GameContext.Provider>
