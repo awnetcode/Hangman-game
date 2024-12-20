@@ -11,6 +11,7 @@ export const GameProvider = ({ children }) => {
   const [selectedChar, setSelecdedChar] = useState("");
   const [charMatch, setCharMatch] = useState(false);
   const [guessedChars, setGuessedChars] = useState([]);
+  const [markedChars, setMarkedChars] = useState([]);
 
 
   // Funkcja porównująca literę z hasłem
@@ -27,6 +28,11 @@ export const GameProvider = ({ children }) => {
     setMissLeft((prevMissLeft) => prevMissLeft - 1);
   }
   };
+
+  const markChar = (index) =>{
+    setMarkedChars((prev) => [...prev, index]);
+    console.log(index);
+  }
   
 
   return (
@@ -37,7 +43,9 @@ export const GameProvider = ({ children }) => {
      selectedChar, setSelecdedChar,
      charMatch, setCharMatch,
      tryChar, 
-     guessedChars
+     markChar,
+     guessedChars,
+     markedChars
      }}>
       {children}
     </GameContext.Provider>

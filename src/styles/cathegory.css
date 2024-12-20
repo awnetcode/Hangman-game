@@ -1,10 +1,12 @@
-#cathegory{
+#cathegory, .play-button{
     display: flex;
     align-items: center;
     column-gap: 2rem;
     color: var(--letter-not-used);
     position: relative;
 }
+
+
 
 .hamburger{
     border-radius: 50%;
@@ -42,6 +44,10 @@
     text-align: center;
 }
 
-.cathegory-link:hover{
+.cathegory-link:hover, .play-button img:hover{
     box-shadow: 0 0 5px 5px var(--letter-not-used);
+}
+
+.play-button{
+    font-size: 2rem;
 }

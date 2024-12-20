@@ -3,7 +3,7 @@ import { GameContext } from './Game-context.jsx';
 import GameData from './Game-data.jsx';
 
 const Game = () => {
-  const { setCathegory, setTask, setCharMatch } = useContext(GameContext);
+  const { setCathegory, setTask, setCharMatch, setMarkedChars } = useContext(GameContext);
 
   useEffect(() => {
     const cathegoryIndex = Math.floor(Math.random() * GameData.cathegories.length);
@@ -15,7 +15,7 @@ const Game = () => {
     setCathegory(pickedCathegory);
     setTask(pickedTask);
     setCharMatch(false);
-  }, [setCathegory, setTask, setCharMatch]);
+  }, [setCathegory, setTask, setCharMatch, setMarkedChars]);
 
   // Nic nie renderujemy
   return null;

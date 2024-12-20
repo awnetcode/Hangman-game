@@ -5,22 +5,27 @@ import { GameContext } from './Game-context';
 
 const Password = () =>{
     const { task, guessedChars } = useContext(GameContext);
-    const passwordArray = [...task];
-  
+    const passwordArray = task.split(" ");
     return (
       <>
         <div id="password">
-          {passwordArray.map((char, index) => (
-            <div className="char-container" key={index}>
-              <span className={
-                guessedChars.includes(char) ? "visible" : "task-char"
-              }>
-                {char === " " ? "\u00A0" : char}
-              </span>
-            </div>
-          ))}
+            {passwordArray.map((word, wordIndex) => (
+                <div className="word-container" key={wordIndex}>
+                    {[...word].map((char, charIndex) => (
+                        <div className="char-container" key={charIndex}>
+                            <span
+                                className={
+                                    guessedChars.includes(char) ? "char-visible" : "task-char"
+                                }
+                            >
+                                {char}
+                            </span>
+                        </div>
+                    ))}
+                </div>
+            ))}
+            {task}
         </div>
-        {task}
       </>
     );
 }

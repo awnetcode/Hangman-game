@@ -20,6 +20,10 @@
     cursor: pointer;
 }
 
+.marked{
+    background: var(--letter-used);
+}
+
 .letter:hover{
     box-shadow: 0 0 5px 5px var(--letter-not-used);
 }

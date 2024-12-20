@@ -5,7 +5,7 @@ import { GameContext } from './Game-context';
 const Alphabet = ()=>{
 
    // eslint-disable-next-line react-hooks/rules-of-hooks
-   const { tryChar } = useContext(GameContext);
+   const { tryChar, markChar, markedChars } = useContext(GameContext);
 
    const letters = [];
    const polish = "ĄĆĘŁŃÓŚŹŻ";
@@ -28,9 +28,14 @@ const Alphabet = ()=>{
          <div id="alphabet">
          {letters.map((letter, index) => (
             <span
-             className='letter'
+             className={`letter ${markedChars.includes(index) ? 'marked' : ''}`}
               key={index}
-               onClick={() => tryChar(letter)}>
+               onClick={
+                  () => {
+                     tryChar(letter);
+                     markChar(index);
+                  } 
+                  }>
                {letter}
             </span>
          ))}
