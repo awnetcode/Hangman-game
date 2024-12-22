@@ -42,7 +42,6 @@ const Alphabet = ()=>{
          </div>
          </>
      )
-
 }
 
 export default Alphabet;

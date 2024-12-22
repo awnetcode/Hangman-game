@@ -51,3 +51,8 @@
 .play-button{
     font-size: 2rem;
 }
+
+.play-button img{
+    border-radius: 50%;
+    cursor: pointer;
+}

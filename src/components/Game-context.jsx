@@ -1,17 +1,19 @@
 import { createContext, useState } from 'react';
+import GameData from './Game-data';
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const GameContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 export const GameProvider = ({ children }) => {
-  const [cathegory, setCathegory] = useState('null');
-  const [task, setTask] = useState("");
-  const [missLeft, setMissLeft] = useState(5);
-  const [selectedChar, setSelecdedChar] = useState("");
-  const [charMatch, setCharMatch] = useState(false);
-  const [guessedChars, setGuessedChars] = useState([]);
-  const [markedChars, setMarkedChars] = useState([]);
+  const [cathegory, setCathegory] = useState('null');//kategoria hasła
+  const [task, setTask] = useState("");//hasło
+  const [missLeft, setMissLeft] = useState(5);//ilość prób
+  const [selectedChar, setSelecdedChar] = useState("");//litera zktualnie wybrana z klawiatury alphabet
+  const [charMatch, setCharMatch] = useState(false);//true jeśli znajduje się w hasle
+  const [guessedChars, setGuessedChars] = useState([]);//odgadnięte litery w haśle
+  const [markedChars, setMarkedChars] = useState([]);//zaznaczone litery na klawiaturze alphabet
+  const [leftToGuess, setLeftToGuess] = useState(0);//ile jeszcze do odgadnięcia
 
 
   // Funkcja porównująca literę z hasłem
@@ -23,6 +25,7 @@ export const GameProvider = ({ children }) => {
   if (isMatch) {
     setGuessedChars((prevGuessed) => 
       prevGuessed.includes(letter) ? prevGuessed : [...prevGuessed, letter]
+    
     );
   } else {
     setMissLeft((prevMissLeft) => prevMissLeft - 1);
@@ -31,8 +34,22 @@ export const GameProvider = ({ children }) => {
 
   const markChar = (index) =>{
     setMarkedChars((prev) => [...prev, index]);
-    console.log(index);
   }
+  
+  const newGame = () => {
+    const cathegoryIndex = Math.floor(Math.random() * GameData.cathegories.length);
+    const pickedCathegory = GameData.cathegories[cathegoryIndex].name;
+  
+    const taskIndex = Math.floor(Math.random() * GameData.cathegories[cathegoryIndex].tasks.length);
+    const pickedTask = GameData.cathegories[cathegoryIndex].tasks[taskIndex];
+  
+    setCathegory(pickedCathegory);
+    setTask(pickedTask);
+    setMissLeft(5);
+    setMarkedChars([]);
+    setGuessedChars([]);
+    setLeftToGuess(task.length);
+  };
   
 
   return (
@@ -44,8 +61,10 @@ export const GameProvider = ({ children }) => {
      charMatch, setCharMatch,
      tryChar, 
      markChar,
+     newGame,
      guessedChars,
-     markedChars
+     markedChars,
+     leftToGuess
      }}>
       {children}
     </GameContext.Provider>

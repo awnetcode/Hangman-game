@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { GameContext } from './Game-context';
 
 const Password = () =>{
-    const { task, guessedChars } = useContext(GameContext);
+    const { task, guessedChars, leftToGuess } = useContext(GameContext);
     const passwordArray = task.split(" ");
     return (
       <>
@@ -24,7 +24,8 @@ const Password = () =>{
                     ))}
                 </div>
             ))}
-            {task}
+            {task}<br/>
+            {leftToGuess}
         </div>
       </>
     );
