@@ -9,6 +9,11 @@
     column-gap: 2rem;
 }
 
+.score{
+    font-size: 2rem;
+    color: var(--letter-not-used);
+}
+
 .life-bar{
     width: 200px;
     padding: 2px;
