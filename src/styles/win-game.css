@@ -1,0 +1,8 @@
+.game-win{
+    width: 100vw;
+    height: 100vh;
+    font-size: 5rem;
+    color: white;
+    background: black;
+    opacity: .3;
+}

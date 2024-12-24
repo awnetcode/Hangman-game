@@ -38,6 +38,16 @@ const GameData = {
             "MIŁOŚĆ SZMARAGD I KROKODYL",
             "KULOODPORNY MNICH",
             "PRZYCZAJONY TYGRYS UKRYTY SMOK",
+            "ARMAGEDDON",
+            "NIESAMOWITY SPIDER MAN",
+            "MROCZNY RYCERZ",
+            "KARATE KID",
+            "KRWAWY SPORT",
+            "HARRY POTTER I KOMNATA TAJEMNIC",
+            "RAMBO PIERWSZA KREW",
+            "WEJŚCIE SMOKA",
+            "FORREST GUMP",
+            "KEVIN SAM W DOMU",
         ]
     },
     {
@@ -68,7 +78,22 @@ const GameData = {
             "SENIOR FRONTEND DEVELOPER",
             "LUMP",
             "PREZES PARTII",
-            "MISTRZ OLIMPIJSKI W RZUCIE MŁOTEM"
+            "MISTRZ OLIMPIJSKI W RZUCIE MŁOTEM",
+            "DOKTOR NAUK MEDYCZNYCH",
+            "DYREKTOR SZKOŁY",
+            "STRÓŻ PRAWA",
+            "TRENER PERSONALNY",
+            "STRAŻAK",
+            "KIEROWNIK BUDOWY",
+            "SPRZEDAWCA WARZYW",
+            "BRAMKARZ REPREZENTACJI",
+            "SERWISANT ROWERÓW",
+            "KIEROWCA RAJDOWY",
+            "SZEF KUCHNI",
+            "STRAŻNIK GRANICZNY",
+            "ZAWODOWY GRACZ",
+            "MECHANIK SAMOCHODOWY",
+            "KIEROWCA AUTOBUSU",
         ]
     }
    ]
