@@ -6,7 +6,8 @@ export const GameContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 export const GameProvider = ({ children }) => {
-  const [cathegory, setCathegory] = useState('null');//kategoria hasła
+  const [category, setCategory] = useState('null');//kategoria hasła
+  const [polishNamecathegory, setPolishNameCathegory] = useState('');//kategoria hasła
   const [task, setTask] = useState("");//hasło
   const [missLeft, setMissLeft] = useState(5);//ilość prób
   const [selectedChar, setSelecdedChar] = useState("");//litera zktualnie wybrana z klawiatury alphabet
@@ -51,24 +52,27 @@ export const GameProvider = ({ children }) => {
  
   
   const newGame = () => {
+    
     const cathegoryIndex = Math.floor(Math.random() * GameData.cathegories.length);
     const pickedCathegory = GameData.cathegories[cathegoryIndex].name;
   
     const taskIndex = Math.floor(Math.random() * GameData.cathegories[cathegoryIndex].tasks.length);
     const pickedTask = GameData.cathegories[cathegoryIndex].tasks[taskIndex];
 
+    setCategory(pickedCathegory);
+
     switch(pickedCathegory){
       case 'Countries':
-        setCathegory('Kraj');
+        setPolishNameCathegory('Kraj');
         break;
       case 'Movies':
-        setCathegory('Film');
+        setPolishNameCathegory('Film');
         break;
       case 'Tv Series':
-        setCathegory('Serial');
+        setPolishNameCathegory('Serial');
         break;
       case 'Person':
-        setCathegory('Osoba');
+        setPolishNameCathegory('Osoba');
         break;            
     }
 
@@ -96,7 +100,8 @@ export const GameProvider = ({ children }) => {
   
   return (
     <GameContext.Provider value={{
-     cathegory, setCathegory,
+     category, setCategory,
+     polishNamecathegory,setPolishNameCathegory,
      task, setTask,
      missLeft, setMissLeft,
      selectedChar, setSelecdedChar,

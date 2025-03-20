@@ -1,4 +1,4 @@
-#cathegory, .play-button{
+#category, .play-button{
     display: flex;
     align-items: center;
     column-gap: 2rem;
@@ -16,12 +16,12 @@
     box-shadow: 0 0 5px 5px var(--letter-not-used);
 }
 
-.cathegory-name{
+.category-name{
     font-size: 2.5rem;
     font-weight: 600;
 }
 
-.cathegory-list{
+.category-list{
     list-style-type: none;
     font-size: 2rem;
     position: absolute;
@@ -36,7 +36,7 @@
     /* transition: all 1s ease; */
 }
 
-.cathegory-link{
+.category-link{
     width: 120px;
     cursor: pointer;
     padding: .2rem;
@@ -44,7 +44,7 @@
     text-align: center;
 }
 
-.cathegory-link:hover, .play-button img:hover{
+.category-link:hover, .play-button img:hover{
     box-shadow: 0 0 5px 5px var(--letter-not-used);
 }
 

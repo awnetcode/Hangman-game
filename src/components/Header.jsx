@@ -1,13 +1,13 @@
 import '../styles/header.css';
 
-import Cathegory from './Cathegory';
+import Category from './Category';
 import Counter from './Counter';
 
 const Header = () =>{
     return(
         <>
         <header className="page-header">
-            <Cathegory />
+            <Category />
             <Counter />
         </header>
         </>
