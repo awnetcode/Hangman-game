@@ -16,7 +16,7 @@ const Counter = () =>{
     return(
         <>
         <div id="counter">
-            <div className="score">SCORE: {score}</div>
+            <div className="score">WYNIK: {score}</div>
             <div className="life-bar">
                         {/* Stworzy wewnątrz life-bar tyle divów life-bar-step ile wynosi missLeft */}
                         {Array.from({ length: missLeft }).map((_, index) => (

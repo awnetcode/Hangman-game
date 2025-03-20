@@ -56,8 +56,22 @@ export const GameProvider = ({ children }) => {
   
     const taskIndex = Math.floor(Math.random() * GameData.cathegories[cathegoryIndex].tasks.length);
     const pickedTask = GameData.cathegories[cathegoryIndex].tasks[taskIndex];
-  
-    setCathegory(pickedCathegory);
+
+    switch(pickedCathegory){
+      case 'Countries':
+        setCathegory('Kraj');
+        break;
+      case 'Movies':
+        setCathegory('Film');
+        break;
+      case 'Tv Series':
+        setCathegory('Serial');
+        break;
+      case 'Person':
+        setCathegory('Osoba');
+        break;            
+    }
+
     setTask(pickedTask);
     setMissLeft(5);
     setMarkedChars([]);

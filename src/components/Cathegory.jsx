@@ -7,7 +7,6 @@ import hamburger from '../assets/hamburger-round-svgrepo-com.svg'
 import play from '../assets/play-icon.svg'
 
 
-
 const Cathegory = () =>{
     const [isOpen, setIsOpen] = useState(false);
 
@@ -25,17 +24,17 @@ const Cathegory = () =>{
         <div id="cathegory">
         <img onClick={toggleMenu} className='hamburger' src={hamburger} alt="hamburger menu icon" />
         <ul  className={`cathegory-list ${isOpen ? "" : "hidden"}`}>
-            <li className="cathegory-link" onClick={() => changeCathegory('Movie')}>Movies</li>
-            <li className="cathegory-link" onClick={() => changeCathegory('Tv Serie')}>Tv Series</li>
-            <li className="cathegory-link" onClick={() => changeCathegory('Country')}>Countries</li>
-            <li className="cathegory-link" onClick={() => changeCathegory('Person')}>Person</li>
+            <li className="cathegory-link" onClick={() => changeCathegory('Movie')}>Film</li>
+            <li className="cathegory-link" onClick={() => changeCathegory('Tv Serie')}>Serial</li>
+            <li className="cathegory-link" onClick={() => changeCathegory('Country')}>Kraj</li>
+            <li className="cathegory-link" onClick={() => changeCathegory('Person')}>Osoba</li>
         </ul>
 
         <span className="cathegory-name" >{cathegory || "loading..."}</span>
         </div>
         <div className="play-button">
           <img src={play} alt="play icon" onClick={() => newGame()}/>
-          Play again
+          Zagraj znowu
         </div>
         </>
     )
