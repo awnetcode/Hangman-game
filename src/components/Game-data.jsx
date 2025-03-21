@@ -1,5 +1,5 @@
 const GameData = {
-   cathegories: [
+   categories: [
     {
         name: "Countries",
         tasks: [

@@ -7,7 +7,7 @@ export const GameContext = createContext();
 // eslint-disable-next-line react/prop-types
 export const GameProvider = ({ children }) => {
   const [category, setCategory] = useState('null');//kategoria hasła
-  const [polishNamecathegory, setPolishNameCathegory] = useState('');//kategoria hasła
+  const [polishNameCategory, setPolishNameCategory] = useState('');//kategoria hasła
   const [task, setTask] = useState("");//hasło
   const [missLeft, setMissLeft] = useState(5);//ilość prób
   const [selectedChar, setSelecdedChar] = useState("");//litera zktualnie wybrana z klawiatury alphabet
@@ -16,6 +16,26 @@ export const GameProvider = ({ children }) => {
   const [markedChars, setMarkedChars] = useState([]);//zaznaczone litery na klawiaturze alphabet
   const [remainingChars, setRemainingChars] = useState(0);//ile jeszcze do odgadnięcia
   const [score, setScore] = useState(0);//iliść punktów
+
+  const translateToPolish = () => {
+
+    switch(category){
+      case 'Countries':
+        setPolishNameCategory('Kraj');
+        break;
+      case 'Movies':
+        setPolishNameCategory('Film');
+        break;
+      case 'Tv Series':
+        setPolishNameCategory('Serial');
+        break;
+      case 'Person':
+        setPolishNameCategory('Osoba');
+        break;            
+    }
+
+    console.log(polishNameCategory);
+  }
 
 
   // Funkcja porównująca literę z hasłem
@@ -53,36 +73,24 @@ export const GameProvider = ({ children }) => {
   
   const newGame = () => {
     
-    const cathegoryIndex = Math.floor(Math.random() * GameData.cathegories.length);
-    const pickedCathegory = GameData.cathegories[cathegoryIndex].name;
+    const categoryIndex = Math.floor(Math.random() * GameData.categories.length);
+    const pickedCategory = GameData.categories[categoryIndex].name;
   
-    const taskIndex = Math.floor(Math.random() * GameData.cathegories[cathegoryIndex].tasks.length);
-    const pickedTask = GameData.cathegories[cathegoryIndex].tasks[taskIndex];
+    const taskIndex = Math.floor(Math.random() * GameData.categories[categoryIndex].tasks.length);
+    const pickedTask = GameData.categories[categoryIndex].tasks[taskIndex];
 
-    setCategory(pickedCathegory);
-
-    switch(pickedCathegory){
-      case 'Countries':
-        setPolishNameCathegory('Kraj');
-        break;
-      case 'Movies':
-        setPolishNameCathegory('Film');
-        break;
-      case 'Tv Series':
-        setPolishNameCathegory('Serial');
-        break;
-      case 'Person':
-        setPolishNameCathegory('Osoba');
-        break;            
-    }
+    setCategory(pickedCategory);
 
     setTask(pickedTask);
     setMissLeft(5);
     setMarkedChars([]);
     setGuessedChars([]);
 
+    translateToPolish();
+
     const taskChars = pickedTask.replace(/ /g, '').split('');
     setRemainingChars(taskChars.length); // Liczba liter pozostałych w haśle w haśle
+    
   };
 
   
@@ -101,7 +109,7 @@ export const GameProvider = ({ children }) => {
   return (
     <GameContext.Provider value={{
      category, setCategory,
-     polishNamecathegory,setPolishNameCathegory,
+     polishNameCategory,setPolishNameCategory,
      task, setTask,
      missLeft, setMissLeft,
      selectedChar, setSelecdedChar,
