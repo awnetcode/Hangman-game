@@ -8,11 +8,10 @@ const WinGame = () =>{
 
     if (remainingChars == 0 ){
         setRemainingChars(0);
-        console.log('żyje!')
         return(
             <>
             <div className="game-win">
-                LOLWUT
+                 Brawo!
             </div>
             </>
         )
