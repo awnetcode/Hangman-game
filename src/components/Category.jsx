@@ -14,7 +14,7 @@ const Category = () =>{
 
     //const category = useContext(GameContext).category;
     const polishNamecathegory = useContext(GameContext).polishNameCategory;
-    const changeCategory = useContext(GameContext).setCategory;
+//    const changeCategory = useContext(GameContext).setCategory;
 
     const toggleMenu = () =>{
         setIsOpen(!isOpen);
@@ -25,23 +25,10 @@ const Category = () =>{
         <div id="category">
         <img onClick={toggleMenu} className='hamburger' src={hamburger} alt="hamburger menu icon" />
         <ul  className={`category-list ${isOpen ? "" : "hidden"}`}>
-            <li className="category-link" onClick={() => {
-            changeCategory('Movie');
-            newGame();
-            } }>Film</li>
-            <li className="category-link" onClick={() => {
-            changeCategory('Tv Serie');
-            newGame();
-                
-            }}>Serial</li>
-            <li className="category-link" onClick={() => {
-            changeCategory('Country');
-            newGame();  
-            }}>Kraj</li>
-            <li className="category-link" onClick={() => {
-            changeCategory('Person');
-            newGame(); 
-            }}>Osoba</li>
+           <li className='category-link' onClick={() => newGame('Movies')}>Film</li>
+           <li className='category-link' onClick={() => newGame('Tv Series')}>Serial</li>
+           <li className='category-link' onClick={() => newGame('Countries')}>Kraj</li>
+           <li className='category-link' onClick={() => newGame('Person')}>Osoba</li>
         </ul>
 
         <span className="category-name" >{ polishNamecathegory || "loading..."}</span>

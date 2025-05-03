@@ -4,7 +4,6 @@
 const WinGame = () =>{
 
      const { remainingChars, setRemainingChars } = useContext(GameContext);
-     console.log(remainingChars);
 
     if (remainingChars == 0 ){
         setRemainingChars(0);

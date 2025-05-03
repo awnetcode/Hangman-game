@@ -6,7 +6,7 @@ export const GameContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 export const GameProvider = ({ children }) => {
-  const [category, setCategory] = useState('null');//kategoria hasła
+  const [category, setCategory] = useState('');//kategoria hasła
   const [polishNameCategory, setPolishNameCategory] = useState('');//kategoria hasła
   const [task, setTask] = useState("");//hasło
   const [missLeft, setMissLeft] = useState(5);//ilość prób
@@ -15,27 +15,7 @@ export const GameProvider = ({ children }) => {
   const [guessedChars, setGuessedChars] = useState([]);//odgadnięte litery w haśle
   const [markedChars, setMarkedChars] = useState([]);//zaznaczone litery na klawiaturze alphabet
   const [remainingChars, setRemainingChars] = useState(0);//ile jeszcze do odgadnięcia
-  const [score, setScore] = useState(0);//iliść punktów
-
-  const translateToPolish = () => {
-
-    switch(category){
-      case 'Countries':
-        setPolishNameCategory('Kraj');
-        break;
-      case 'Movies':
-        setPolishNameCategory('Film');
-        break;
-      case 'Tv Series':
-        setPolishNameCategory('Serial');
-        break;
-      case 'Person':
-        setPolishNameCategory('Osoba');
-        break;            
-    }
-
-    console.log(polishNameCategory);
-  }
+  const [score, setScore] = useState(0);//ilość punktów
 
 
   // Funkcja porównująca literę z hasłem
@@ -71,28 +51,27 @@ export const GameProvider = ({ children }) => {
 
  
   
-  const newGame = () => {
-    
-    const categoryIndex = Math.floor(Math.random() * GameData.categories.length);
-    const pickedCategory = GameData.categories[categoryIndex].name;
+  const newGame = (forcedCategory = null) => {
+    const categoryToUse = forcedCategory || GameData.categories[Math.floor(Math.random() * GameData.categories.length)].name;
   
-    const taskIndex = Math.floor(Math.random() * GameData.categories[categoryIndex].tasks.length);
-    const pickedTask = GameData.categories[categoryIndex].tasks[taskIndex];
-
-    setCategory(pickedCategory);
-
+    const categoryObj = GameData.categories.find(cat => cat.name === categoryToUse);
+    const pickedTask = categoryObj.tasks[Math.floor(Math.random() * categoryObj.tasks.length)];
+  
+    setCategory(categoryToUse);
     setTask(pickedTask);
     setMissLeft(5);
     setMarkedChars([]);
     setGuessedChars([]);
-
-    translateToPolish();
-
-    const taskChars = pickedTask.replace(/ /g, '').split('');
-    setRemainingChars(taskChars.length); // Liczba liter pozostałych w haśle w haśle
-    
+    setRemainingChars(pickedTask.replace(/ /g, '').length);
+  
+    // Bezpieczniej od razu przetłumaczyć
+    switch(categoryToUse){
+      case 'Countries': setPolishNameCategory('Kraj'); break;
+      case 'Movies': setPolishNameCategory('Film'); break;
+      case 'Tv Series': setPolishNameCategory('Serial'); break;
+      case 'Person': setPolishNameCategory('Osoba'); break;
+    }
   };
-
   
   // Wywołanie newGame przy pierwszym renderze
   useEffect(() => {

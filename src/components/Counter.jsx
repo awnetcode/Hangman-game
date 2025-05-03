@@ -8,9 +8,6 @@ import heartPulse from '../assets/heart-pulse.svg';
 
 const Counter = () =>{
     const missLeft = useContext(GameContext).missLeft;
-
-    //TESTOWO: do usunięcia razem z onclickiem na heart
-    const changeMissLeft = useContext(GameContext).setMissLeft;
     const score = useContext(GameContext).score;
 
     return(
@@ -23,7 +20,7 @@ const Counter = () =>{
                         <div key={index} className="life-bar-step"></div>
                     ))}
             </div>   
-            <img src={missLeft > 2 ? heart : heartPulse} className="heart" onClick={() => changeMissLeft(missLeft - 1)}></img>
+            <img src={missLeft > 2 ? heart : heartPulse} className="heart"></img>
         </div>
         </>
     )   
